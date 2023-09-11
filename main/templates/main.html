@@ -2,27 +2,37 @@
 <html>
 <body>
 
-<h1>airlib's Book Page</h1>
-<p><b>Embrace the World of Books with Us!</b></p>
-<br> </br>
+<!-- Book Image That is Moving -->
+<marquee behavior="alternate" direction="left">		
+    <img src="https://imageio.forbes.com/specials-images/imageserve/5f85be4ed0acaafe77436710/0x0.jpg?format=jpg&width=1200" alt = "Book Image" width="150" height="90">
+</marquee>
 
-<p><b>Name of Book: </b> {{ name }} </p>
-<p><b>Amount of Books: </b> {{ amount }} <p>
-<p><b>Price ($): </b> {{ price }} </p>
-<p><b>Book Description: </b> {{ description }} <p>
+<!-- Header -->
+<h1> <font color = green> airlib's Book Page</font> </h1>
+<p> <b>Embrace the World of Books with Us!</b> </p>
 
-<h3>What Do You Want to Do?</h3>
-<form action="/action_page.php">
-    <input type="radio" id="sell" name="action" value="SELL">
-    <label for="sell">SELL</label><br>
-    <input type="radio" id="buy" name="action" value="BUY">
-    <label for="buy">BUY</label><br>
-    <input type="radio" id="borrow" name="action" value="BORROW">
-    <label for="borrow">BORROW</label><br><br>
-    <input type="submit" value="Submit">
-</form>
+<!-- List of Books -->
+<h3>Our List of Books:</h3>
+<ol type = "1">
+        {% for book in books %}
+        <li>
+        <div class="myBooks">
+            <p class="name"><b>Name of Books: </b> {{ book.name }} </p>
+            <p class="amount"><b>Amount of Books: </b> {{ book.amount }} </p>
+            <p class="price"><b>Price: </b> {{ book.price }} </p>
+            <p class="description"><b>Description: </b> {{ book.description }} </p>
+        </div>
+        </li>
+        {% endfor %}
+</ol>
+
+<!-- Contact Information -->
+<h3>Contact Us Here:</h3>
+<p>Email: airlib@cs.ui.ac.id</p>
+<p>Phone: (+62) 123-4567</p>
 
 <br> </br>
 <p><b>Novrizal Airsyahputra</b> (2206081780) PBP-A </p>
+
 </body>
 </html>

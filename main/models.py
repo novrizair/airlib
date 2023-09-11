@@ -1,0 +1,12 @@
+from django.db import models
+
+class Product(models.Model):
+    name = models.CharField(max_length=255)
+    amount = models.IntegerField()
+    description = models.TextField()
+    price = models.IntegerField()
+
+    author = models.CharField(max_length=255)
+    #image = models.ImageField(upload_to='images/', null=True, blank=True)
+    ratings = models.FloatField(default=0)
+    numberPages = models.IntegerField(default=0)

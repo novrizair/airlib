@@ -125,7 +125,7 @@ Selain itu, controllernya MVC bertugas untuk mengelola interaksi antara "View" d
 Terakhir, tampilan dari MVVM dipisahkan dari _business logics_ dengan perantaranya "View Model". Jadi, tampilan akan fokus ke presentasi data.
 
  ---
-# **SUMBER REFERENSI**
+# **Sumber Referensi**
 
 https://pbp-fasilkom-ui.github.io/ganjil-2024/docs/tutorial-0
 

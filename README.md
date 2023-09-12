@@ -96,19 +96,19 @@ JAWAB: Ketiganya termasuk pola arsitektur _software_ yang berfungsi untuk mengat
 
 a. **MVC (Model-View-Controller):** Memiliki banyak keuntungan, di antaranya (i) pengembangan berbagai komponen dapat dilakukan secara paralel; (ii) menawarkan dukungan terbaik untuk pengembangan yang bersifat _test-driven_; (iii) dapat bekerja dengan baik untuk aplikasi webs (yang biasanya terdiri dari banyak _web designers_ dan _developers_) 
    
-   - **Model ---** Merupakan sebuah komponen yang berhubungan dengan bisnis dan basis data.
+   - **Model ---** Merupakan sebuah komponen utama yang mengatur data, logik, dan _constrains_ aplikasi.
    
-   - **View ---** Berguna untuk menampilkan data dari model kepada users dan mengumpulkan _input_ dari _users_.
+   - **View ---** Berguna untuk menampilkan data dari model kepada _users_ dan mengumpulkan _input_ dari _users_.
    
-   - **Controller ---** Berfungsi untuk mengontrol aliran dari aplikasi.
+   - **Controller ---** Memanipulasi Model dan berfungsi untuk mengontrol aliran dari aplikasi.
 
-b. **MVT (Model-View-Template):** Memiliki banyak keuntungan, di antaranya (i) 
+b. **MVT (Model-View-Template):** Memiliki banyak keuntungan, di antaranya (i) mudah untuk dimodifikasi; (2) cocok untuk aplikasi besar dan kecil; (3) (funfact) digunakan oleh Django.
    
-   - **Model ---** Merupakan sebuah komponen yang berhubungan dengan bisnis dan basis data.
+   - **Model ---** Membantu menangani _database_ dan bertindak sebagai _interface_ data. 
    
-   - **View ---** Berguna untuk tampilan dan presentasi data.
+   - **View ---** Berguna untuk mengeksekusi _business logic_ dan berinteraksi dengan Model untuk _carry data_ dan _renders_ sebuah _template_.
    
-   - **Template ---** Umumnya digunakan untuk pengembangan web dengan Python dan kerangka kerja web Django. Bagian yang berfungsi untuk mengatur tampilan bagian-bagian HTML yang berbeda dari halaman web. 
+   - **Template ---** Umumnya digunakan untuk pengembangan web dengan Python dan kerangka kerja web Django. Bagian yang berfungsi untuk mengatur tampilan bagian-bagian HTML yang berbeda dari halaman web. Dapat bersifat _static_ atau _dynamic_.
 
 c. **MVVM (Model-View-ViewModel):** Memiliki banyak keuntungan, di antaranya (i) mudah untuk dites dan dirawat; (ii) logika bisnisnya dipisahkan dari UI; (iii) mudah untuk _reuse_ komponen-komponen.
 
@@ -118,9 +118,9 @@ c. **MVVM (Model-View-ViewModel):** Memiliki banyak keuntungan, di antaranya (i)
 
    - **ViewModel ---** Berfungsi untuk menghubungkan Model dan View. ViewModel sediakan data yang digunakan View dan sebagai perantara View dengan Model. Selain itu, ViewModel meng-handle logika tampilan dan interaksi yang tidak cocok dalam Model atau View.
 
-**Perbedaan utama dari ketiganya** ada di cara komponen-komponen utama aplikasinya berinteraksi dan pembagian tugasnya. Pada MVT "Template" bertanggung jawab untuk me-_render_ tampilannya. Sedangkan pada MVC, tanggung jawab tersebut dilakukan "View."
+**Perbedaan utama dari ketiganya** ada di cara komponen-komponen utama aplikasinya berinteraksi dan pembagian tugasnya. Pada MVT "Template" bertanggung jawab untuk me-_render_ tampilannya. Sedangkan pada MVC, tanggung jawab tersebut dilakukan "View." Pada MVC, untuk memodifikasi sulit dan kurang cocok untuk aplikasi kecil, tetapi MVT dapat memodifikasi dengan lebih mudah dan cocok untuk aplikasi besar dan kecil.
 
-Selain itu, controllernya MVC bertugas untuk mengelola interaksi antara "View" dengan "Model". Sedangkan MVT, "View" dan "Model"-nya berinteraksi lebih langsung
+Selain itu, controller pada MVC bertugas untuk mengelola interaksi antara "View" dengan "Model". Sedangkan MVT, "View" dan "Model"-nya berinteraksi lebih langsung
 
 Terakhir, tampilan dari MVVM dipisahkan dari _business logics_ dengan perantaranya "View Model". Jadi, tampilan akan fokus ke presentasi data.
 
@@ -138,3 +138,5 @@ https://docs.djangoproject.com/id/4.2/intro/tutorial01/
 https://levelup.gitconnected.com/mvc-vs-mvp-vs-mvvm-35e0d4b933b4
 
 https://www.guru99.com/mvc-vs-mvvm.html
+
+https://www.geeksforgeeks.org/difference-between-mvc-and-mvt-design-patterns/

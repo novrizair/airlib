@@ -1,7 +1,9 @@
 # Novrizal Airsyahputra (2206081780) PBP-A
 ---
+
 Tautan menuju Adaptable: 
 
+---
 
 **1. Jelaskan bagaimana cara kamu mengimplementasikan _checklist_ di atas secara _step-by-step_ (bukan hanya sekadar mengikuti tutorial).**
 
@@ -38,6 +40,7 @@ g) Lakukan _deployment_ aplikasi tersebut ke website adaptable.io. Jadi, teman-t
 
 h) Membuat README.md (ini) dan berisi tautan menuju aplikasi Adaptable yang sudah di-deploy sebelumnya dan jawaban dari 4 pertanyaan.
 
+---
 
 **2. Buatlah bagan yang berisi _request client_ ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.**
 
@@ -63,6 +66,8 @@ Kemudian, kaitan antara urls.py, views.py, models.py, dan html adalah:
 
 -**Berkas HTML:** berfungsi untuk mengatur tampilan halaman web untuk _users_ atau _clients_. 
 
+---
+
 **3. Jelaskan mengapa kita menggunakan _virtual environment_? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan _virtual environment_?**
 
 JAWAB: Berikut ini beberapa alasan dari penggunaan _virtual environment_:
@@ -82,6 +87,8 @@ Jadi, misalkan kita akan membuat banyak proyek Python secara bersamaan, sebaikny
 -> Buat _virtual environment_ dahulu: python -m venv env 
 
 -> Aktifkan (Windows): env\Scripts\activate.bat
+
+---
 
 **4. Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya.**
 

@@ -1,12 +1,11 @@
 from django.db import models
 
-class Product(models.Model):
+class Items(models.Model):
     name = models.CharField(max_length=255)
     amount = models.IntegerField()
     description = models.TextField()
     price = models.IntegerField()
 
-    author = models.CharField(max_length=255)
-    #image = models.ImageField(upload_to='images/', null=True, blank=True)
-    ratings = models.FloatField(default=0)
-    numberPages = models.IntegerField(default=0)
+    nama = models.CharField(max_length = 255)
+    kelas = models.CharField(max_length = 255)
+    aplikasi = models.CharField(max_length = 255)

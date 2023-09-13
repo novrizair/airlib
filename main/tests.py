@@ -9,6 +9,10 @@ class mainTest(TestCase):
         response = Client().get('/main/')
         self.assertTemplateUsed(response, 'main.html')
 
+    def test_main_url_is_exist_too(self):
+        response = Client().get('/main/')
+        self.assertEqual(response.status_code, 200)
+
 # COLLABORATOR: SABRINA ATHA SHANIA
 # REFERENSI: https://www.geeksforgeeks.org/python-unittest-assertnotequal-function/
 #            https://www.semrush.com/blog/what-does-error-404-not-found-mean/

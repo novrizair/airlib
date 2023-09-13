@@ -9,9 +9,9 @@ Tautan menuju Adaptable:
 
 JAWAB: Berikut merupakan cara saya dalam mengimplementasikan _checklist_ di atas:
 
-a) Setelah membuat _dependencies_ dalam berkas requirements.txt dan menjalankan _environment_,  waktunya membuat sebuah proyek Django baru yang bernama airlib. Perintah yang ditulis pada cmd adalah: **django-admin startproject airlib .** (gunakan . )
+a) Setelah membuat _dependencies_ dalam berkas requirements.txt dan menjalankan _environment_,  waktunya membuat sebuah proyek Django baru yang bernama airlib. Perintah yang ditulis pada cmd adalah: **django-admin startproject airlib .**
 
-b) Kemudian, buat aplikasi yang bernama "main" pada proyek, dengan cara perintah: **python manage.py startapp main**. Tak lupa, setelah itu, buka _file_ settings.py dalam direktori proyek airlib dan tambahkan code 'main' ke dalam variabel INSTALLED_APPS.
+b) Kemudian, buat aplikasi yang bernama "main" pada proyek, dengan cara perintah: **python manage.py startapp main**. Tak lupa setelah itu, buka _file_ settings.py dalam direktori proyek airlib dan tambahkan code 'main' ke dalam variabel INSTALLED_APPS.
 
 C) Selanjutnya, routing proyek dilakukan agar aplikasi main dapat dijalankan. Jadi, rute URL akan ditambahkan ke dalam urls.py proyek yang bertanggung jawab untuk mengatur rute URL proyek. Lakukan sedikit perubahan pada _file_ urls.py, yaitu dengan: **from django.urls import path, include**. Fungsi _include_ ini berguna untuk mengimpor rute URL dari aplikasi main ke dalam _file_ urls.py proyek. Selain itu, tambahkan juga: **path('main/', include('main.urls'))** ke dalam variabel urlpatterns. Jadi, path URL 'main/' selanjutnya diarahkan ke rute yang didefinisikan dalam berkas urls.py aplikasi main.
 
@@ -36,7 +36,7 @@ e) Kemudian, membuat fungsi dalam views.py untuk dikembalikan ke dalam sebuah te
 
  f) Selanjutnya, pembuatan routing pada urls.py aplikasi main ---_file_ ini bertanggung jawab untuk mengatur rute URL yang terkait dengan aplikasi main --- untuk memetakan fungsi yang telah dibuat pada views.py. Jadi, hal yang dilakukan adalah: **from django.urls import path** untuk mendefinisikan pola URL. Kemudian: **from main.views import show_main** _function_ ini sebagai tampilan yang akan ditampilkan saat URL diakses. **app_name = 'main'** agar nama unik pada pola URL aplikasi. 
 
-g) Lakukan _deployment_ aplikasi tersebut ke website adaptable.io. Jadi, teman-teman akan dapat mengakses website yang telah saya buat melalui internet mereka. _Template deployment_ yang digunakan adalah Python App Template dan tipe basis data yang digunakan adalah PostgreSQL. Kemudian, _start command_ diisi dengan **python manage.py migrate && gunicorn shopping_list.wsgi**
+g) Lakukan _deployment_ aplikasi tersebut ke website adaptable.io. Jadi, teman-teman akan dapat mengakses website yang telah saya buat melalui internet mereka. _Template deployment_ yang digunakan adalah Python App Template dan tipe basis data yang digunakan adalah PostgreSQL. Kemudian, _start command_ diisi dengan **python manage.py migrate && gunicorn airlib.wsgi**
 
 h) Membuat README.md (ini) dan berisi tautan menuju aplikasi Adaptable yang sudah di-deploy sebelumnya dan jawaban dari 4 pertanyaan.
 

@@ -8,11 +8,13 @@ from main.models import Item
 
 def show_main(request):
     items = Item.objects.all()
+    counting = items.count()
 
     context = {
         'nama': 'Novrizal Airsyahputra',
         'kelas': 'PBP A', 
-        'aplikasi': "airlib's",
+        'aplikasi': "airlib",
+        'counting': counting,
         'items': items,
     }
 

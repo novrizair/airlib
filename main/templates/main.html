@@ -1,6 +1,7 @@
-<!DOCTYPE html>
-<html>
-<body>
+
+{% extends 'base.html' %}
+
+{% block content %}    
 
 <p><b>Nama: </b>{{ nama }}</p>
 <p><b>Kelas: </b>{{ kelas }}</p>
@@ -11,16 +12,33 @@
 
 <!-- List of Books -->
 <h3>Our List of Books:</h3>
-<ol type = "1">
-        {% for book in books %}
-        <li> <div>
-            <p><b>Name of Books: </b> {{ book.name }} </p>
-            <p><b>Amount of Books: </b> {{ book.amount }} </p>
-            <p><b>Price ($): </b> {{ book.price }} </p>
-            <p><b>Description: </b> {{ book.description }} </p>
-        </div> </li>
-        {% endfor %}
-</ol>
 
-</body>
-</html>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Amount</th>
+        <th>Price</th>
+        <th>Description</th>
+    </tr>
+
+    {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
+
+    {% for item in items %}
+        <tr>
+            <td>{{item.name}}</td>
+            <td>{{item.amount}}</td>
+            <td>{{item.price}}</td>
+            <td>{{item.description}}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+<br />
+
+<a href="{% url 'main:create_item' %}">
+    <button>
+        Add New Item
+    </button>
+</a>
+
+{% endblock content %}

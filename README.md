@@ -1,7 +1,7 @@
 # Novrizal Airsyahputra (2206081780) PBP-A
 ---
 
-TUGAS 2 PBP
+## TUGAS 2 PBP
 
 ---
 
@@ -144,7 +144,7 @@ https://www.geeksforgeeks.org/difference-between-mvc-and-mvt-design-patterns/
 
 ---
 
-TUGAS 3 PBP
+## TUGAS 3 PBP
 
 ---
 **1. Apa perbedaan antara form POST dan form GET dalam Django?**
@@ -265,10 +265,10 @@ b. XML
 c. JSON
 ![json](https://i.imgur.com/nqqBLKo.jpg)
 
-d. XML by ID
+d. XML _by_ ID
 ![xmlByID](https://i.imgur.com/zC0BCRe.jpg)
 
-e. JSON by ID
+e. JSON _by_ ID
 ![jsonByID](https://i.imgur.com/TDhgvFr.jpg)
 
 
@@ -284,3 +284,5 @@ https://www.infoworld.com/article/3222851/what-is-json-a-better-format-for-data-
 https://www.alphasoftware.com/blog/json-is-the-de-facto-standard-for-data-interchange-in-web-applications-alpha-anywhere
 
 https://www.linkedin.com/pulse/understanding-json-backbone-behind-modern-data-approach-delali-azumah/
+
+---

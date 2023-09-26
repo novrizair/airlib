@@ -1,5 +1,5 @@
 import datetime
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, Http404
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
@@ -12,7 +12,6 @@ from django.core import serializers
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from main.forms import ItemForm
-from django.urls import reverse
 from main.models import Item
 
 @login_required(login_url='/login')
@@ -91,3 +90,45 @@ def logout_user(request):
     response = HttpResponseRedirect(reverse('main:login'))
     response.delete_cookie('last_login')
     return response
+
+def adding_amount(request, id):
+    try:
+        items = Item.objects.get(pk=id)
+
+        if request.method == 'GET':
+            items.amount += 1
+            items.save()
+            return redirect('main:show_main')
+        return redirect('main:show_main')
+    
+    except Item.DoesNotExist:
+        raise Http404("Item Anda tak dapat ditemukan.")
+    
+def removing_amount(request, id):
+    try:
+        items = Item.objects.get(pk=id)
+
+        if request.method == 'GET':
+            items.amount -= 1
+            items.save()
+
+            if items.amount == 0:
+                items.delete()
+            return redirect('main:show_main')
+        return redirect('main:show_main')
+    
+    except Item.DoesNotExist:
+        raise Http404("Item Anda tak dapat ditemukan.")
+    
+
+def deleting_amount(request, id):
+    try:
+        items = Item.objects.get(pk=id)
+
+        if request.method == 'GET':
+            items.delete()
+            return redirect('main:show_main')
+        return redirect('main:show_main')
+    
+    except Item.DoesNotExist:
+        raise Http404("Item Anda tak dapat ditemukan.")

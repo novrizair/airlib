@@ -21,6 +21,9 @@
         <th>Amount</th>
         <th>Price ($)</th>
         <th>Description</th>
+        <th>Add an Item</th>
+        <th>Remove an Item</th>
+        <th>Delete an Item</th>
     </tr>
 
     {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
@@ -31,6 +34,31 @@
             <td>{{item.amount}}</td>
             <td>{{item.price}}</td>
             <td>{{item.description}}</td>
+
+            {% comment %} Code untuk add sebuah Item {% endcomment %}
+            <td><a href="{% url 'main:add' item.id %}">
+                <button>
+                    Add
+                </button>
+                </a>
+            </td>
+
+            {% comment %} Code untuk remove sebuah Item {% endcomment %}
+            <td><a href="{% url 'main:remove' item.id %}">
+                <button>
+                    Remove
+                </button>
+                </a>
+            </td>
+
+            {% comment %} Code untuk delete sebuah Item {% endcomment %}
+            <td><a href="{% url 'main:delete' item.id %}">
+                <button>
+                    Delete
+                </button>
+                </a>
+            </td>
+
         </tr>
     {% endfor %}
 </table>

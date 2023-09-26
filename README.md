@@ -150,15 +150,15 @@ https://www.geeksforgeeks.org/difference-between-mvc-and-mvt-design-patterns/
 
 JAWAB: Django Forms (POST dan GET) merupakan sebuah _built-in feature_ dari Django. Berikut ini merupakan perbedaan dari keduanya:
 
-a.	**Segi _Data Types_ ---** _Method post_ dapat menggunakan _data types_ yang berbeda seperti, _string_, _binary_, _numeric_, dan lain-lain. Sedangkan, _method get_, hanya dapat menggunakan _string data type_.
+a.	**Segi _Data Types_ ---** _Method post_ dapat menggunakan _data types_ yang bervariasi seperti, _string_, _binary_, _numeric_, dan lain-lain. Sedangkan, _method get_, hanya dapat menggunakan _string data type_.
 
-b.	**Segi Penggunaan ---** _Method post_ digunakan saat ingin melakukan pemrosesan pengiriman data dari _form_ ke _server_. Sebagai contoh, permintaan untuk mengubah status server atau menyimpan data di dalam _database_. Sedangkan, _method get_ digunakan saat ingin mendapatkan data dari server. Jadi, proses mendapatkan data ini tidak melakukan perubahan pada status _server_ yang digunakan.
+b.	**Segi Penggunaan ---** _Method post_ biasanya digunakan saat ingin melakukan pemrosesan pengiriman data dari _form_ ke _server_. Sebagai contoh, permintaan untuk mengubah status _server+ atau menyimpan data di dalam _database_. Sedangkan, _method get_ biasanya digunakan saat ingin mendapatkan data dari _server_. Jadi, proses mendapatkan data ini tidak akan melakukan perubahan pada status _server_ yang sedang digunakan.
 
 c.	**Segi _Cacheable_---** Pada umumnya, _method post_ bersifat _hardly cacheable_. Sedangkan, _method get_, pada umumnya, bersifat _cacheable_.
 
-d.	**Segi Security ---** _Method post_ lebih aman daripada _method get_ untuk melakukan pengiriman data sensitif (tak nampak pada URL dan tak mudah diakses oleh _user_). Sedangkan, pada method get, data sensitif dapat nampak di URL, jadi kurang aman untuk digunakan.
+d.	**Segi Security ---** _Method post_ lebih aman daripada _method get_ untuk melakukan pengiriman data sensitif (tak nampak pada URL dan tak mudah diakses oleh _user_). Sedangkan, pada method get, data sensitif akan dapat nampak di URL, jadi kurang aman untuk digunakan.
 
-e.	**Segi Ukuran Pengiriman Data ---** _Method post_ dapat mengirim data dalam jumlah yang lebih besar. Jadi, _post_ cocok untuk meng-_upload_ file dengan size yang besar. Sedangkan, _method get_, data yang dapat dikirimkan _size_-nya lebih rendah.
+e.	**Segi Ukuran Pengiriman Data ---** _Method post_ mampu untuk dapat mengirim data dalam jumlah yang lebih besar. Jadi, _post_ cocok untuk meng-_upload_ file dengan _size_ yang besar. Sedangkan, _method get_, data yang dapat dikirimkan _size_-nya lebih kecil daripada _method post_.
 
 ---
 
@@ -166,13 +166,13 @@ e.	**Segi Ukuran Pengiriman Data ---** _Method post_ dapat mengirim data dalam j
 
 JAWAB: Berikut ini perbedaan utama dari ketiganya berdasarkan beberapa segi:
 
-a. **Segi Security ---** XML dalam penggunaannya, developers harus berhati-hati karena tak ada hal seperti _built-in_ untuk _handle_ masalah _security_; Pada JSON meski strukturnya lebih _simple_, tetap perlu untuk dilindungi. Hanya saja, risikonya tidak setinggi XML; Sedangkan, untuk HTML, memiliki beberapa masalah _security_ yang harus di-_handle_ seperti CSRF (Cross-Site Request Forgery).
+a. **Segi _Security_ ---** XML dalam penggunaannya, _developers_ harus berhati-hati karena tak ada hal seperti _built-in_ untuk _handle_ masalah _security_; Pada JSON meski strukturnya lebih _simple_, tetap perlu untuk dilindungi. Hanya saja, risikonya tidak setinggi XML; Sedangkan, untuk HTML, memiliki beberapa masalah _security_ yang harus di-_handle_ seperti CSRF (_Cross-Site Request Forgery_).
 
-b. **Segi Tujuan Penggunaan ---** XML memiliki tujuan untuk merepresentasikan atau menukar data yang terstruktur antara sistem yang berbeda-beda. XML bersifat sangat fleksibel dan biasanya digunakan dalam _file configure_, web services, dan lain-lain; JSON sering digunakan untuk pertukaran data dan _modern webite development_. Utamanya, JSON dipakai untuk mengirim data antara _browser_ dan _server_ pada aplikasi web modern; Sedangkan, untuk HTML digunakan sebagai pembuat tampilan web _pages_ kepada browser dan pembuatan struktur web.
+b. **Segi Tujuan Penggunaan ---** XML memiliki tujuan untuk merepresentasikan atau menukar data yang terstruktur antara sistem yang berbeda-beda. XML sifatnya sangat fleksibel dan biasanya digunakan dalam _file configure_, _web services_, dan lain-lain; JSON sering digunakan untuk pertukaran data dan _modern webite development_. Utamanya, JSON dipakai untuk mengirim data antara _browser_ dan _server_ pada aplikasi web modern; Sedangkan, untuk HTML digunakan sebagai pembuat tampilan web _pages_ kepada browser dan pembuatan struktur web.
 
-c. **Segi _Data Structure_ ---** Pada XML, _data structure_-nya didefinisikan dengan menggunakan tags dan atribut; JSON menggunakan konsep _key-value pairs_ untuk merepresentasikan datanya (terutama pada saat _nested array_); Sedangkan, untuk mengatur struktur web _pages_ pada HTML, digunakanlah tags.
+c. **Segi _Data Structure_ ---** Pada XML, _data structure_-nya didefinisikan dengan menggunakan _tags_ dan atribut; JSON menggunakan konsep _key-value pairs_ untuk merepresentasikan datanya (terutama pada saat _nested array_); Sedangkan, untuk mengatur struktur web _pages_ pada HTML, digunakanlah _tags_.
 
-**Fun Fact!** JSON diciptakan sebagai alternatif dari XML (dulu pernah dominan sebagai format untuk pertukaran data).
+**Fun Fact!** JSON diciptakan sebagai alternatif dari XML (dulu XML lebih sering digunakan sebagai format untuk pertukaran data).
 
 ---
 
@@ -194,7 +194,7 @@ f. JSON **mendukung banyak _data types_** seperti _string_, _numeric_, _array_, 
 
 ---
 
-**4. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).**
+**4. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara _step-by-step_ (bukan hanya sekadar mengikuti tutorial).**
 
 JAWAB:
 
@@ -224,7 +224,7 @@ b. Kemudian, menambahkan sebanyak 5 fungsi _views_ untuk melihat objek yang suda
 
 - XML _and_ JSON _by_ ID: Buka `views.py` pada _folder_ `main`. Kemudian, buat _function_ `show_xml_by_id` dan `show_json_by_id`, keduanya memiliki parameter `request`, serta beri _return function_ `HttpResponse` yang isinya adalah parameter data hasil _query_ dan parameter `content_type="application/xml"` (untuk show_xml_by_id) dan `content_type="application/json"` (untuk show_json_by_id). Lalu, buka `urls.py` dalam _folder_ `main` dan _import_ kedua _function_. Tak lupa, tambahkan _path url_-nya ke dalam `urlpatterns` agar dapat diakses.
 
-c. Lalu, membuat _routing_ URL untuk setiap _views_ yang telah ditambahkan. Caranya adalah pada _file_ `urls.py` yang ada di dalam _folder_ `main`, buatlah kode ini:
+c. Lalu, membuat _routing_ URL untuk setiap _views_ yang telah ditambahkan. Caranya adalah pada _file_ `urls.py` yang ada di dalam _folder_ `main`, buatlah kode ini (sebenarnya pada poin sebelumnya routing URL telah diterapkan):
 
 urlpatterns = [
     path('', show_main, name='show_main'),
@@ -239,7 +239,7 @@ Dengan menambahkan _path_ URL, maka _routing_ URL tiap _views_ telah dibuat.
 
 d. Menjawab beberapa pertanyaan pada README.md pada _root_ folder.
 
-e. Lakukan akses terhadap kelima URL di poin 2 menggunakan Postman, membuat screenshot dari hasil akses URL pada Postman, dan menambahkannya ke dalam README.md. Caranya adalah dengan:
+e. Lakukan akses terhadap ke-5 URL di poin 2 menggunakan Postman, membuat screenshot dari hasil akses URL pada Postman, dan menambahkannya ke dalam README.md. Caranya adalah dengan:
 
 - _Download_ aplikasi Postman.
 
@@ -251,7 +251,7 @@ f. Terakhir, jangan lupa untuk melakukan `git add`, `git commit -m "PBP TUGAS 3 
 
 ---
 
-**5. _Screeshot_ hasil URL dari Postman.**
+**5. _Screenshot_ hasil URL dari Postman.**
 
 JAWAB:
 

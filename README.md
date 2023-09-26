@@ -141,12 +141,11 @@ https://www.guru99.com/mvc-vs-mvvm.html
 
 https://www.geeksforgeeks.org/difference-between-mvc-and-mvt-design-patterns/
 
-
 ---
 
 ## TUGAS 3 PBP
 
----
+
 **1. Apa perbedaan antara form POST dan form GET dalam Django?**
 
 JAWAB: Django Forms (POST dan GET) merupakan sebuah _built-in feature_ dari Django. Berikut ini merupakan perbedaan dari keduanya:
@@ -284,5 +283,135 @@ https://www.infoworld.com/article/3222851/what-is-json-a-better-format-for-data-
 https://www.alphasoftware.com/blog/json-is-the-de-facto-standard-for-data-interchange-in-web-applications-alpha-anywhere
 
 https://www.linkedin.com/pulse/understanding-json-backbone-behind-modern-data-approach-delali-azumah/
+
+---
+
+## TUGAS 4 PBP
+
+**1. Apa itu Django UserCreationForm, dan jelaskan apa kelebihan dan kekurangannya?**
+
+JAWAB: Django UserCreationForm berasal dari _module_ django.contrib.auth.forms dan merupakan sebuah _built-in import form_. Dalam aplikasi web, penerapan dari Django UserCreationForm akan dapat memudahkan pembuatan formulir pendaftaran _user account_ (_sign-up_). Jadi, _user_ tak perlu menulis blok kode dari awal untuk mendaftarkan diri. UserCreationForm akan mengumpulkan informasi pribadi _user_, contohnya nama pengguna (_username_), kata sandi (_password_), dan konfirmasi kata sandi.
+
+Berikut ini beberapa kelebihan penggunaan dari Django UserCreationForm:
+
+a. **Memudahkan _User_ ---** Dengan menerapkan Django UserCreationForm, para _user_ akan dapat menghemat waktu tanpa perlu menulis blok kode untuk mendaftarkan diri atau _sign-up_.
+
+b. **Dapat Melakukan Validasi Secara Otomatis ---** Django UserCreationForm akan secara otomatis memvalidasi informasi _input user_ sudah sesuai dengan persyaratan (syarat untuk _password_: setidaknya 8 karakter, tidak bisa seluruh karakter berupa angka, dan lain-lain).
+
+c. **Sudah Terintegrasi dengan Model User Django ---** Dengan mudah, data yang di-_input_ ke dalam formulir akan dapat disimpan ke dalam _data base_.
+
+Di sisi lain, terdapat beberapa kekurangan penggunaan dari Django UserCreationForm:
+
+a. **Terbatasnya Kustomisasi yang Dapat Dilakukan ---** Dalam beberapa _case_ contohnya penggunaan logika pendaftaran yang kompleks, kustomitasi lebih lanjut kemungkinan akan butuh untuk dilakukan.
+
+b. **_Design_ yang Kurang Sesuai ---** _Design_ dari Django UserCreationForm memiliki kemungkinan untuk tidak sesuai dengan _User Interface_ (UI) yang diinginkan.
+
+c. **Dari Segi _Security_ ---** Dibutuhkan tingkat _security_ yang lebih dengan hal-hal yang berkaitan dengan _users' password' dan serangan _brute force_.
+
+---
+
+**2. Apa perbedaan antara autentikasi dan otorisasi dalam konteks Django, dan mengapa keduanya penting?**
+
+JAWAB: Kedua hal tersebut sangatlah penting untuk memastikan keamanan dan kontrol akses dalam aplikasi web. Namun, terdapat perbedaan yang dimiliki antara keduanya, yaitu:
+
+Sistem dari autentikasi Django menangani kedua hal tersebut (autentikasi dan otorisasi). 
+
+- Autentikasi memverifikasi _user_ sesuai dengan klaim yang dinyatakan _input_. Sedangkan, otorisasi-lah yang menentukan apa saja hal yang boleh dilakukan oleh _user_ yang telah ter-autentikasi. 
+
+- Proses autentikasi diselesaikan atau dilakukan sebelum berjalannya otorisasi. Jadi, otorisasi baru dilakukan setelah autentikasi telah dilakukan.
+
+- Autentikasi menentukan 'orang' ini adalah _user_ atau bukan. Sedangkan, otorisasi untuk menentukan hal-hal yang diizinkan untuk _user_ lakukan.
+
+- Autentikasi _user_ dicek dengan _username, password, fingerprints_, dan lain-lain. Sedangkan, otorisasi dilaksanakan melalui hak-hak akses yang dapat dilakukan oleh peran si _user_.
+
+Kemudian, beberapa alasan dari pentingnya penggunaan kedua hal tersebut, di antaranya:
+
+- Otorisasi memiliki fleksibilitas untuk mengatur tingkat akses yang dimiliki oleh seorang _user_. Contohnya, ada yang hanya sebagai _user_ biasa, ada yang menjadi seorang _admin_, dan lain-lain.
+
+- Dengan otorisasi, kontrol akses dapat dilakukan, jadi kerahasiaan data akan dapat dikendalikan dengan baik.
+
+- Autentikasi juga akan membuat aplikasi web menjadi lebih aman. Hal tersebut disebabkan hanya _user_ yang sah-lah yang dapat memiliki akses ke akun yang dimilikinya (data pribadi _user_ juga akan menjadi aman).
+
+---
+
+**3. Apa itu _cookies_ dalam konteks aplikasi web, dan bagaimana Django menggunakan _cookies_ untuk mengelola data sesi pengguna?**
+
+JAWAB: Dalam konteks aplikasi web, _cookies_ merupakan _files_ kecil informasi yang dihasilkan oleh _web server_ dan akan dikirim ke _web browser_. Kemudian, _web browser_ ini akan menyimpan _cookies_ dalam _file_ khusus perangkat _user_ untuk waktu yang telah ditentukan (bisa juga selama sesi _user_ di dalam web). _Cookies_ juga akan membantu untuk menginformasikan ke _website_ tentang _user_. Jadi, _website_ akan dapat mempersonalisasi pengalaman si _user_.
+
+Kemudian. Django menggunakan _cookies_ dengan cara:
+
+a. **Menyimpan Data Sesi ---** Saat sang _user_ mengakses situs dengan Django, data sesi _user_ akan tersimpan oleh Django. Biasanya, _cookie_ yang satu ini disebut dengan '_session cookie_'.
+
+b. **Memetakan Data Sesi ---** Data sesi akan dipetakan ke informasi yang disimpan di dalam server Django. 
+
+c. **Mengambil Data Sesi ---** Tiap saat _user_ memberikan _request_ ke server Django, _server_ menggunakan _cookie_ yang berisi ID sesi untuk mengambil data sesi yang sesuai dari penyimpanan server.
+
+d. **Menggunakan Data Sesi ---** Data sesi yang diambil dari penyimpanan server dapat digunakan dalam tampilan Django untuk melakukan berbagai tugas, seperti autentikasi pengguna, menyimpan keranjang belanja, atau menyimpan preferensi pengguna.
+
+e. **Mengakhiri Sesi ---** Saat _user_ mengakhiri sesinya, server dapat menghapus data sesi dan menghapus _session cookie_ dari sisi klien.
+
+---
+
+**4. Apakah penggunaan _cookies_ aman secara _default_ dalam pengembangan web, atau apakah ada risiko potensial yang harus diwaspadai?**
+
+JAWAB: Secara _default_, penggunaan dari _cookies_ dapat dibilang relatif aman, terutama jika pengimplementasiannya dilakukan dengan baik dan benar. Hal tersebut karena _cookies_ dibuat untuk menyimpan informasi pada _users' browser_ dan hanya dapat diakses oleh situs web yang mengaturnya. Namun, tetap saja terdapat beberapa risiko potensial yang harus diwaspadai, di antaranya:
+
+a. **Pencurian Data Pribadi ---** _Cookies_ yang memiliki informasi sensitif seperti data pribadi sering dijadikan target dari pencurian data. Jadi, _cookies_ haruslah dienkripsi dengan baik dan benar.
+
+b. **Pelacakan _User_ ---** _Cookies_ terkadang dipakai untuk melacak apa saja yang _user_ lakukan di seluruh situs web dan melintasi berbagai _domain_. Jadi, jelas bahwa ini merupakan suatu pelanggaran privasi.
+
+c. **Serangan _Cookies_ ---** Contohnya seperti Cross-Site Scripting (XSS), sebuah kerentanan keamanan yang mana _attacker_ menempatkan _malicious client-end code_ ke dalam halaman web.
+
+
+**TAMBAHAN SAJA ---** Tentunya terdapat beberapa langkah yang dapat dilakukan untuk mengurangi risiko, di antaranya:
+
+a. **Gunakan HTTPS ---** Terutama untuk _cookies_ yang mengandung data sensitif. URL yang aman seharusnya "https" daripada "http" ("s" dalam "https" berarti _secure_). Namun, "https" juga tidak menjamin 100% web tersebut aman. "Https" hanyalah mengamankan komunikasi antara 2 komputer (komputer dari si _user_ dengan sebuah web _server_).
+
+b. **Pantau dan Lapor**: Pantau dan laporkanlah aktivitas yang mencurigakan berkaitan cookies dengan segera.
+
+---
+
+**5. Jelaskan bagaimana cara kamu mengimplementasikan _checklist_ di atas secara _step-by-step_ (bukan hanya sekadar mengikuti tutorial).**
+
+JAWAB:
+a. Mengimplementasikan fungsi registrasi, _login_, dan _logout_ untuk memungkinkan _user_ untuk mengakses aplikasi sebelumnya dengan lancar.
+
+- Untuk fungsi registrasi, jalankan _virtual environment_, lalu buka `views.py` yang ada di dalam `main`. Kemudian, buat fungsi `register` dengan parameter `request`. Tak lupa, importlah juga `redirect`, `UserCreationForm` dan `messages`. Masukkan juga beberapa baris kode yang akan berfungsi untuk menghasilkan formulir registrasi dan membuat akun _user_ saat data _user_ di-_submit_. Lalu, buatlah juga _file_ `register.html` dalam _folder_ `main/templates`. Pada `urls.py` dalam `main` juga harus diimpor fungsi `register` tersebut. Terakhir, masukkan _path_ URL ke dalam `urlpatterns`. 
+
+- Untuk fungsi _login_, buka `views.py` yang ada di dalam `main`. Kemudian, buat fungsi `login_user` dengan parameter `request`. Tak lupa, importlah juga `authenticate` dan `login`. Masukkan juga beberapa baris kode yang akan berfungsi untuk mengautentikasi _user_ yang _login_. Lalu, buatlah juga _file_ `login.html` dalam _folder_ `main/templates`. Pada `urls.py` dalam `main` juga harus diimpor fungsi `login_user` tersebut. Terakhir, masukkan _path_ URL ke dalam `urlpatterns`. 
+
+- Untuk fungsi logout, buka `views.py` yang ada di dalam `main`. Kemudian, buat fungsi `logout_user` dengan parameter `request`. Tak lupa, importlah `logout`. Masukkan juga beberapa baris kode yang akan berfungsi untuk meng-_logout_ _user_. Lalu, buka _file_ `main.html` dalam _folder_ `main/templates`. Setelah _hyperlink tag_, tambahkan beberapa baris kode. Pada `urls.py` dalam `main` juga harus diimpor fungsi `logout_user` tersebut. Terakhir, masukkan _path_ URL ke dalam `urlpatterns`. 
+
+b. Membuat dua akun _user_ dengan masing-masing tiga _dummy data_ menggunakan model yang telah dibuat pada aplikasi sebelumnya untuk setiap akun di lokal. Dengan melakukan _register_, kemudian isi _username_, _password_, konfirmasi _password_, dan submit data. Setelah itu lakukanlah login dan isi data buku yang ingin dimasukkan ke dalam _website_.
+
+c. Untuk menghubungkan model `Item` dengan `User`, pertama-tama buka `models.py` yang ada di dalam `main` dan _import_-lah `User`. Pada model `Item` juga tambahkan kode: `user = models.ForeignKey(User, on_delete=models.CASCADE)`. Hal tersebut akan menghubungkan satu `item` dengan satu `user`. Kemudian, buka `views.py` dalam `main`, dan ubah potongan kode dalam _function_ `create_item` menjadi `commit=False` agar mencegah Django untuk langsung menyimpan objek yang dibuat dari _form_ ke _database_. Tak lupa, lakukanlah _migrate_ dengan `python manage.py makemigrations` dan `python manage.py migrate`.
+
+
+d. Menampilkan detail informasi pengguna yang sedang _logged in_ seperti _username_ dan menerapkan _cookies_ seperti _last login_ pada halaman utama aplikasi. 
+
+- Untuk _username_ dapat dilakukan dengan mengubah _function_ `show_main` menjadi `items = Item.objects.filter(user=request.user)` dan `'name': request.user.username,` dalam `context`. 
+
+- Sedangkan, untuk _last login_ dapat dilakukan dengan buka `views.py` dalam `main` dan _import_ `HttpResponseRedirect`, `reverse`, dan `datetime`. Lalu, dalam fungsi `login_user`, tambahkan fungsi `last_login` untuk melihat waktu terakhir kali _user login_ ke dalam _website_. Pada fungsi `show_main` juga tambahkan kode `'last_login': request.COOKIES['last_login'],`. Pada `logout_user` juga ubah kodenya dan `response.delete_cookie('last_login')` berguna untuk hapus _cookie_ `last_login` saat _user_ `logout`. Terakhir, tambahkan kode yang berfungsi untuk menampilkan data _last login_ tersebut ke dalam `main.html`.
+
+e. Menjawab 5 pertanyaan pada README.md.
+
+f. Melakukan `add-commit-push` ke GitHub. Lakukan dengan `git add .`, `git commit -m "TUGAS 4 PBP DONE"`, dan `git push origin main`.
+
+---
+# **Sumber Referensi Tugas 4**
+
+https://pbp-fasilkom-ui.github.io/ganjil-2024/docs/tutorial-3
+
+https://www.javatpoint.com/django-usercreationform
+
+https://docs.djangoproject.com/en/4.2/
+
+https://www.geeksforgeeks.org/difference-between-authentication-and-authorization/
+
+https://it.wisc.edu/news/two-things-to-look-for-in-a-secure-website/#:~:text=A%20secure%20URL%20should%20begin,browser%20to%20the%20website's%20server.
+
+https://www.searchenginejournal.com/https-for-marketers/417561/#:~:text=HTTPS%20doesn't%20mean%20a,attack%20by%20hackers%20or%20malware.
+
+https://www.cloudflare.com/learning/privacy/what-are-cookies/
 
 ---

@@ -132,3 +132,18 @@ def deleting_amount(request, id):
     
     except Item.DoesNotExist:
         raise Http404("Item Anda tak dapat ditemukan.")
+
+def edit_item(request, id):
+    # Get item berdasarkan ID
+    items = Item.objects.get(pk = id)
+
+    # Set item sebagai instance dari form
+    form = ItemForm(request.POST or None, instance=items)
+
+    if form.is_valid() and request.method == "POST":
+        # Simpan form dan kembali ke halaman awal
+        form.save()
+        return HttpResponseRedirect(reverse('main:show_main'))
+
+    context = {'form': form}
+    return render(request, "edit_item.html", context)

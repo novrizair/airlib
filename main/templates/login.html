@@ -6,26 +6,78 @@
 
 {% block content %}
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #6c9f88; 
+        }
+
+        .login {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            width: 350px; 
+        }
+
+        .form-floating {
+            margin-bottom: 10px;
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 10px;
+            background-color: #0a5f38; 
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+    .btn.btn-primary {
+        background-color: #0a5f38; 
+        color: #fff; 
+    }
+
+    .btn.btn-primary:hover {
+        background-color: #0a5f38; 
+    }
+
+    </style>
+
+</head>
+
 <div class = "login">
 
-    <h1>Login</h1>
+    <h1 class="h3 mb-3 fw-normal">Login Here!</h1>
 
     <form method="POST" action="">
         {% csrf_token %}
         <table>
             <tr>
-                <td>Username: </td>
-                <td><input type="text" name="username" placeholder="Username" class="form-control"></td>
+                <div class="form-floating">
+                    <input type="text" name="username" placeholder="Username" class="form-control">
+                    <label for="floatingInput">Username</label>
+                </div>
             </tr>
                     
             <tr>
-                <td>Password: </td>
-                <td><input type="password" name="password" placeholder="Password" class="form-control"></td>
+                <div class="form-floating">
+                    <input type="password" name="password" placeholder="Password" class="form-control">
+                    <label for="floatingPassword">Password</label>
+                  </div>            
             </tr>
 
             <tr>
-                <td></td>
-                <td><input class="btn login_btn" type="submit" value="Login"></td>
+                <td><input class="btn btn-primary w-100 py-2" type="submit" value="Login" background-color =#0a5f38></td>
             </tr>
         </table>
     </form>

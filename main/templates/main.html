@@ -1,14 +1,63 @@
 
 {% extends 'base.html' %}
 
-{% block content %}    
+{% block content %}   
 
-<p><b>Nama: </b>{{ nama }}</p>
-<p><b>Kelas: </b>{{ kelas }}</p>
-<p><b>Aplikasi: </b>{{ aplikasi }}</p>
+<style>
+.btn.btn-primary {
+    background-color: #0a5f38; 
+    color: #fff; 
+}
+
+.btn.btn-primary:hover {
+    background-color: #0a5f38; 
+}
+
+.custom-button {
+    background-color: #9dbfaf; 
+    color: #fff; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+}
+
+.custom-button:hover {
+    background-color: #9dbfaf; /* Warna latar belakang saat tombol dihover */
+}
+
+/* Gaya untuk baris terakhir dalam tabel */
+table tr:last-child {
+    background-color: #0a5f38; 
+    color: #FFFFFF; 
+}
+
+</style>
+
+
+<div class="container" style = "background-color: #6c9f88;">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+      <div class="col-md-3 mb-2 mb-md-0">
+        <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
+          <svg class="bi" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+        </a>
+      </div>
+
+      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="#" class="nav-link px-2 link-secondary">Welcome to {{ aplikasi }}, {{ nama }}! </a></li>
+      </ul>
+
+
+      <div class="col-md-3 text-end">
+        <a href="{% url 'main:logout' %}">
+            <button type="button" class="btn btn-primary">Logout</button>
+        </a>
+      </div>
+    </header>
+</div>
 
 <!-- Header Application -->
-<h1> <font color = green> airlib's Book Page</font> </h1>
+<h1> <font color = #0a5f38> airlib's Book Page</font> </h1>
 
 <p> Kamu telah menambahkan {{ counting }} items pada airlib! </p>
 
@@ -37,7 +86,7 @@
 
             {% comment %} Code untuk add sebuah Item {% endcomment %}
             <td><a href="{% url 'main:add' item.id %}">
-                <button>
+                <button class="custom-button">
                     Add
                 </button>
                 </a>
@@ -45,7 +94,7 @@
 
             {% comment %} Code untuk remove sebuah Item {% endcomment %}
             <td><a href="{% url 'main:remove' item.id %}">
-                <button>
+                <button class="custom-button">
                     Remove
                 </button>
                 </a>
@@ -53,9 +102,18 @@
 
             {% comment %} Code untuk delete sebuah Item {% endcomment %}
             <td><a href="{% url 'main:delete' item.id %}">
-                <button>
+                <button class="custom-button">
                     Delete
                 </button>
+                </a>
+            </td>
+
+            {% comment %} Code untuk edit sebuah Item {% endcomment %}
+            <td>
+                <a href="{% url 'main:edit_item' item.pk %}">
+                    <button class="custom-button">
+                        Edit
+                    </button>
                 </a>
             </td>
 
@@ -68,14 +126,8 @@
 <h5>Sesi terakhir login: {{ last_login }}</h5>
 
 <a href="{% url 'main:create_item' %}">
-    <button>
+    <button class="custom-button">
         Add New Item
-    </button>
-</a>
-
-<a href="{% url 'main:logout' %}">
-    <button>
-        Logout
     </button>
 </a>
 

@@ -415,3 +415,89 @@ https://www.searchenginejournal.com/https-for-marketers/417561/#:~:text=HTTPS%20
 https://www.cloudflare.com/learning/privacy/what-are-cookies/
 
 ---
+
+## TUGAS 5 PBP
+
+**1. Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya.**
+
+JAWAB:
+Setiap elemen _selector_ manfaat dan penggunaannya berbeda-beda, semuanya tergantung kebutuhan dan _design_ halaman web. Jadi, pemilihan elemen yang tepat sangatlah penting agar _web pages_ akan lebih efektif dan efisien. Beberapa penjelasan mengenai elemen _selector_, di antaranya:
+
+a. **Universal Selector (\*) ---** Digunakan untuk memilih seluruh elemen dalam _web pages_. Waktu yang tepat untuk menggunakannya adalah saat ingin memberikan gaya umum pada semua elemen. Namun, perlu berhati-hati karena penggunaan universal elector akan dapat memengaruhi keseluruhan _web pages_.
+   
+b. **Type Selector (Element Selector) ---** Digunakan untuk memilih seluruh elemen dengan jenis tertentu (`<p>`, `<h1>`, atau `<div>`). Waktu yang tepat untuk menggunakannya adalah saat ingin memberikan suatu gaya kuhusus pada suatu jenis elemen.
+
+c. **Class Selector (.) ---** Digunakan untuk memilih elemen berdasarkan _class_. Waktu yang tepat untuk menggunakannya adalah saat ingin memberikan suatu gaya yang sama pada beberapa elemen di kelas yang sama.
+
+d. **ID Selector (#) ---** Digunakan untuk memilih elemen berdasarkan ID. Waktu yang tepat untuk menggunakannya adalah saat ingin memberikan suatu gaya kuhusus pada suatu elemen tunggal yang IDnya bersifat unik.
+
+e. **Child Selector (>) ---** Digunakan untuk memilih elemen yang termasuk anak langsung dari elemen lainnya. Waktu yang tepat untuk menggunakannya adalah saat ingin memengaruhi elemen yang langsung menjadi anak dari elemen lain, bukan elemen yang lebih dalam di dalamnya.
+
+---
+
+**2. Jelaskan HTML5 Tag yang kamu ketahui.**
+
+JAWAB: HTML5 (Hypertext Markup Language 5) berguna untuk membuat dan memperkaya struktur konten pada _web pages_ dan merupakan versi yang terbaru. Beberapa tag HTML5 yang penting untuk diketahui, di antaranya:
+
+a. **\<header>:** Tag ini berguna untuk pengelompokan elemen dalam bagian kepala dokumen. Contohnya judul, logo, dan navigasi.
+
+b. **\<nav>:** Tag ini berguna untuk menampilkan bagian _web pages_ yang isinya adalah menu navigasi utama. 
+
+c. **\<section>:** Tag ini berguna untuk pengelompokkan konten yang berhubungan dalam _web pages_.
+
+d. **\<footer>:** Tag ini berguna untuk pengelompokkan informasi _footer_ _web pages_. Contohnya adalah informasi kontak pada web.
+
+e. **\<main>:** Tag ini berguna untuk menandai konten utama dari _docs_. Pada umumnya, hanya terdapat satu buah tag main dalam tiap _web pages_.
+
+f. **\<audio>** atau **\<video>:** Tag ini berguna untuk menyematkan audio atau video _web pages_.
+
+g. **\<canvas>:** Tag ini biasanya digunakan untuk menggambar grafik interaktif dan animasi dalam _web pages_.
+
+h. **\<summary>** atau **\<details>**: Tag ini berguna untuk membuat elemen yang dapat diklik untuk membuka dan menutup konten tambahan.
+
+---
+
+**3. Jelaskan perbedaan antara margin dan padding.**
+
+JAWAB: Keduanya merupakan properti CSS dan memiliki kegunaan untuk mengatur sisi tiap elemen HTML. Dalam proyek _website_, biasanya kedua properti ini paling banyak digunakan. Perbedaan utama antara keduanya adalah letak jarak tersebut diimplementasikan dan bagaimana mereka memengaruhi tata letak elemen.
+
+a. **Margin:** 
+- Berguna untuk mengatur jarak elemen HTML dari luar.
+- Mengakibatkan "ruang kosong" di luar elemen. Jadi, elemen-elemen tetangganya tidak akan terlalu dekat dengan elemen tersebut.
+- Bersifat transparan terhadap latar belakang elemen. Jadi, margin tidak memiliki latar belakang sendiri.
+
+b. **Padding:** 
+- Berguna untuk mengatur jarak elemen HTML dari dalam.
+- Mengakibatkan "ruang kosong" di sekitar konten elemen.Jadi, kontennya tidak melekat pada batas elemen.
+- Tidak bersifat transparan terhadap latar belakang elemen. Jadi, jika diberikan latar belakang elemen, padding memiliki latar belakang yang sama dengan elemennya.
+
+---
+
+**4. Jelaskan perbedaan antara framework CSS Tailwind dan Bootstrap. Kapan sebaiknya kita menggunakan Bootstrap daripada Tailwind, dan sebaliknya?**
+
+JAWAB: Keduanya merupakan framework CSS dan memiliki kegunaan untuk membantu UI dari proyek, meningkatkan waktu pengembangan dan pengalaman _users_. Tailwind lebih baru dan ringkas daripada Bootstrap, tetapi Tailwind masih berada di fase pengembangan. 
+
+a. **Tailwind:**
+- Fokusnya untuk menciptakan elemen UI yang bersifat fungsional, rapi, dan fleksibel.
+- Dalam aspek kustomisasi, lebih fleksibel karena mudah untuk penyesuaian tampilannya.
+- Dalam aspek _file size_, lebih ringan karena hanya menggunakan _class_ yang dibutuhkan.
+- Dalam aspek kompleksitas proyek, cocok untuk proyek kecil yang kebutuhan kustomisasinya besar.
+- Waktu penggunaannya saat mengembangkan tampilan yang memiliki fleksibilitas tinggi dan adaptabilitas tinggi, proyek kecil-menengah, dan pembangunan tampilan dengan pendekatan berbasis kelas dalam HTML.
+
+b. **Bootstrap:** 
+- Lebih tradisional (komponen dan gayanya sebelumnya sudah ditentukan, jadi tinggal digabungkan ke dalam proyek). Berfokus pada pengembangan segala komponen untuk penggunaan _website_.
+- Dalam aspek kustomisasi, lebih terstruktur dan lebih sulit karena harus mengganti atau menambahkan _style_ CSS tambahan.
+- Dalam aspek _file size_, lebih besar karena menggunakan seluruh komponen dan _style_.
+- Dalam aspek kompleksitas proyek, cocok untuk proyek besar atau butuh pengembangan yang cepat.
+- Waktu penggunaannya saat mengembangkan proyek yang cepat dan tidak membutuhkan kustomisasi lebih. Digunakan juga untuk proyek besar dengan konsistensi tampilan dan fungsionalitas.
+
+---
+# **Sumber Referensi Tugas 5**
+
+https://pbp-fasilkom-ui.github.io/ganjil-2024/docs/tutorial-4#pengenalan-bootstrap--tailwind
+
+https://www.webhozz.com/blog/margin-padding/
+
+https://www.kodingakademi.id/tailwind-css-vs-bootstrap-mana-yang-lebih-baik/
+
+---

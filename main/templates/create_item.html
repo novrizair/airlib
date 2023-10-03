@@ -9,6 +9,28 @@ h1 {
     padding: 10px; 
     text-align: center; 
 } 
+
+.container {
+    background-color: #cedfd7;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin: 20px auto;
+    width: 80%;
+}
+
+.btn.add-item-btn {
+    background-color: #0a5f38;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn.add-item-btn:hover {
+    background-color: #0a5f38;
+}
 </style>
 
 
@@ -21,7 +43,7 @@ h1 {
         <tr>
             <td></td>
             <td>
-                <input type="submit" value="Add Item"/>
+                <input class="btn add-item-btn" type="submit" value="Add Item" />
             </td>
         </tr>
     </table>

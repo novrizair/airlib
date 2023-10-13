@@ -433,6 +433,8 @@ d. **ID Selector (#) ---** Digunakan untuk memilih elemen berdasarkan ID. Waktu 
 
 e. **Child Selector (>) ---** Digunakan untuk memilih elemen yang termasuk anak langsung dari elemen lainnya. Waktu yang tepat untuk menggunakannya adalah saat ingin memengaruhi elemen yang langsung menjadi anak dari elemen lain, bukan elemen yang lebih dalam di dalamnya.
 
+h. **Elemen Selector ---** Dengan ini, pengubahan properti terhadap seluruh elemen yang tag HTML-nya sama dapat dilakukan. Format dari elemen _selector_ adalah '[id_name]'.
+
 ---
 
 **2. Jelaskan HTML5 Tag yang kamu ketahui.**

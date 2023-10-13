@@ -1,5 +1,5 @@
 import datetime
-from django.http import HttpResponseRedirect, Http404
+from django.http import HttpResponseRedirect, Http404, HttpResponseNotFound
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
@@ -13,6 +13,8 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from main.forms import ItemForm
 from main.models import Item
+from django.views.decorators.csrf import csrf_exempt
+import json
 
 @login_required(login_url='/login')
 def show_main(request):
@@ -141,9 +143,59 @@ def edit_item(request, id):
     form = ItemForm(request.POST or None, instance=items)
 
     if form.is_valid() and request.method == "POST":
+
         # Simpan form dan kembali ke halaman awal
         form.save()
         return HttpResponseRedirect(reverse('main:show_main'))
 
     context = {'form': form}
     return render(request, "edit_item.html", context)
+
+def get_product_json(request):
+    product_item = Item.objects.filter(user=request.user)
+    return HttpResponse(serializers.serialize('json', product_item))
+
+@csrf_exempt
+def add_product_ajax(request):
+    if request.method == 'POST':
+        name = request.POST.get("name")
+        amount = request.POST.get("amount")
+        price = request.POST.get("price")  # Get the price from the request
+        description = request.POST.get("description")
+        user = request.user
+
+        new_product = Item(name=name, amount=amount, description=description, price = price, user=user)
+        new_product.save()
+
+        return HttpResponse(b"CREATED", status=201)
+
+    return HttpResponseNotFound()
+
+@csrf_exempt
+def delete_item_ajax(request):
+    data = json.loads(request.body.decode("utf-8"))
+    item = Item.objects.get(pk=data["id"])
+    item.delete()
+
+    return HttpResponse("DELETED", status = 200)
+
+@csrf_exempt
+def add_amount_ajax(request):
+    data = json.loads(request.body.decode("utf-8"))
+    item = Item.objects.get(pk=data["id"])
+    
+    item.amount += 1
+    item.save()
+
+    return HttpResponse(status = 200)
+
+@csrf_exempt
+def remove_amount_ajax(request):
+    data = json.loads(request.body.decode("utf-8"))
+    item = Item.objects.get(pk=data["id"])
+
+    if item.amount > 1:
+        item.amount -= 1
+        item.save()
+
+    return HttpResponse(status = 200)

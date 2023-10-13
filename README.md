@@ -501,3 +501,102 @@ https://www.webhozz.com/blog/margin-padding/
 https://www.kodingakademi.id/tailwind-css-vs-bootstrap-mana-yang-lebih-baik/
 
 ---
+
+## TUGAS 6 PBP
+
+**1. Jelaskan perbedaan antara asynchronous programming dengan synchronous programming.**
+JAWAB:
+
+a. **_Synchronous Programming_:**
+   - Membaca _file_ pemrograman.
+   - Tugas atau operasi akan dieksekusinya berurutan (satu per satu).
+   - Saat ada tugas yang sedang dalam proses, program akan tetap menunggu sampai tugas tersebut selesai. Barulah program akan melanjutkan ke tugas berikutnya.
+   - Data baru dapat diambil / di-_edit_ setelah tugas sebelumnya sudah selesai.
+
+b. **_Asynchronous Programming_:**
+   - Mengunduh suatu _file_ dari internet.
+   - Tugas atau operasi akan dieksekusi secara satu sama lain.
+   - Program tidak harus menunggu tugas yang lainnya untuk lanjut mengerjakan tugas selanjutnya. 
+   - Hal tersebut akan memungkinkan aplikasi agar tetap responsif karena tidak akan mengalami penundaan.
+
+---
+
+**2. Dalam penerapan JavaScript dan AJAX, terdapat penerapan paradigma _event-driven programming_. Jelaskan maksud dari paradigma tersebut dan sebutkan salah satu contoh penerapannya pada tugas ini.**
+JAWAB:
+Paradigma _event-driven programming_ adalah pendekatan pemrograman di mana aplikasi merespons peristiwa atau kejadian yang terjadi secara asinkron. Aplikasi akan menunggu dan merespons peristiwa yang terjadi, contohnya adalah tindakan _user_, notifikasi dari sistem, dan lain-lain. Contoh paradigmanya: JavaScript & AJAX. Dengan _event-driven programming_, maka fleksibilitas aplikasi akan meningkat dan aplikasi juga akan semakin interaktif. 
+
+Kemudian, penerapannya pada tugas ini adalah pada _button add_, _button remove_ & _button delete_ suatu _item_. Saat menerima _event button_ di-_click_, maka _event-handler_ akan menambahkan, mengurangi, atau menghapus suatu item.
+
+---
+
+**3. Jelaskan penerapan asynchronous programming pada AJAX.**
+JAWAB:
+Asynchronous JavaScript and XML (AJAX) sangat mendukung penggunaan _asynchronous programming_. Penerapan _asynchronous programming_ dalam AJAX untuk mengirim _request_ ke server dan menerima respons dari server tanpa menghentikan alur utama aplikasi web. Beberapa konsep utama penerapan _asynchronous programming_ pada AJAX, di antaranya:
+
+a. **XMLHttpRequest Object (XHR) ---** AJAX memakai _object_ XMLHttpRequest (XHR) untuk berkomunikasi dengan server secara asinkron. XHR merupakan sebuah _object_ JavaScript yang dapat membuat permintaan HTTP tanpa memuat ulang halaman web.
+
+b. **_Callback Functions_ ---** Penerapan _asynchronous programming_ dalam AJAX sering melibatkan penggunaan callback functions. Jadi, _function_ yang akan dipanggil saat _request_ ke server selesai atau ada kesalahan akan diatur.
+
+c. **_Event Listeners_ ---** _Event listeners_ berguna untuk memantau berbagai tahap dalam siklus permintaan XHR, seperti perubahan status (readyState) atau respons yang telah diterima. 
+
+d. **_Promises_ dan _Async/Await_ ---** _Promises_ untuk pengelolaan operasi _asynchronous_ dengan lebih terstruktur dan mudah untuk dibaca. Sedangkan, _async/await_ adalah fitur JavaScript yang lebih modern dan dapat untuk menulis kode _asynchronous_ dengan sintaks yang lebih bersih dan mirip dengan kode _synchronous_.
+
+Jadi, penerapan _asynchronous programming_ pada AJAX penting untuk aplikasi web agar responsif saat sedang berkomunikasi dengan server secara _asynchronous_. Selain itu, pengalaman _user_ dan kinerja dari aplikasi tersebut juga akan meningkat (salah satunya karena tidak harus _reload web page_).
+
+---
+
+**4. Pada PBP kali ini, penerapan AJAX dilakukan dengan menggunakan Fetch API daripada library jQuery. Bandingkanlah kedua teknologi tersebut dan tuliskan pendapat kamu teknologi manakah yang lebih baik untuk digunakan.**
+JAWAB:
+
+**Fetch API** merupakan aktivitas pengiriman _request_ ke _service endpoint backend_ pada aplikasi web. Pada umumnya, hasil respons dari API adalah data yang berformat JSON dan XML. Beberapa karakteristik yang dimiliki oleh fetch API, di antaranya:
+
+a. **JavaScript Asli ---** Fetch API sudah terintegrasi sebagai bagian dari JavaScript yang asli. Jadi, tidak perlu untuk melakukan pengunduhan atau pengimporan _library_ tambahan.
+
+b. **_Promises_ ---** Fetch API menggunakan Promises (menyediakan cara yang lebih modern dan bersih untuk pengelolaan operasi _asynchronous_). 
+
+c. **Ringan ---** Fetch API bersifat lebih ringan daripada jQuery.
+
+d. **Fleksibilitas ---** Fetch API memiliki lebih banyak fleksibilitas dalam hal penanganan _request_ dan respons. Jadi, pengembang akan dapat bekerja dengan banyak jenis data seperti JSON, teks, XML, dan lain-lain.
+
+Sedangkan, **jQuery** merupakan sebuah _framework_ atau _library_ JavaScript. Penggunaannya akan dapat mempercepat dan mempermudah proses pengembangan aplikasi web. Beberapa karakterirstik yang dimiliki oleh jQuery, di antaranya:
+
+a. **Kompatibilitas Cross-Browser ---** Pada awal mulanya, jQuery dikembangkan untuk mengatasi inkonsistensi dalam JavaScript di berbagai browser. Jadi, jQuery lebih konsisten untuk melakukan _request_ AJAX, terutama di browser lama.
+
+b. **Abstraksi:** jQuery mengabstraksi banyak kompleksitas _object_ XMLHttpRequest, memberikan API yang lebih sederhana, dan mudah digunakan untuk operasi AJAX.
+
+c. **Berat ---** jQuery bersifat lebih berat daripada fetch API.
+
+d. **Utilitas Tambahan:** jQuery merupakan sebuah _library_ komprehensif dengan berbagai fungsi utilitas dan _plugin_ untuk menangani tidak hanya permintaan AJAX tetapi juga manipulasi DOM, animasi, dan tugas-tugas pengembangan web umum lainnya.
+
+Jadi, agar kode tetap ringan, fleksibel, dan dapat menggunakan fitur JavaScript modern, gunakanlah fetch API. Namun, jika membutuhkan browser lama, gunakanlah jQuery karena memiliki kompatibilitas lintas _browser_ yang baik.
+
+---
+
+**5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).**
+JAWAB:
+a. Mengubah tugas 5 yang telah dibuat sebelumnya menjadi menggunakan AJAX. Pertama-tama, buat _function_ baru dalam `views.py` (tampilkan data item pada HTML dengan fetch & gunakan AJAX untuk tambahkan _new item_ ke dalam _database_). Tak lupa, tambahkan juga _path_-nya di dalam `urls.py`. Dalam `main.html`, tambahkan id dan blok kode _script_. Terakhir, di dalam `main.html`, buatlah modal sebagai _form_.
+
+b. Melakukan perintah collectstatic dapat dilakukan setelah mengaktifkan environmen. Jalankan _command_ `python manage.py collectstatic`.
+
+c. Menjawab 5 pertanyaan berikut pada README.md pada _root folder_
+
+d. Melakukan `add-commit-push` ke GitHub. Lakukan dengan `git add .`, `git commit -m "TUGAS 6 PBP DONE"`, dan `git push origin main`.
+
+e. Melakukan deployment ke PaaS PBP Fasilkom UI dan sertakan tautan aplikasi pada file README.md.
+- Tambahkan django-environ ke dalam `requirements.txt` dan lakukanlah peng-_install_-an.
+- Buat Procfile, .dockerignore, Dockerfile.
+- Dalam `settings.py`, `import environmen` dan `import os`.
+- Buat .github/workflows/pbp-deploy.yml.
+- Terakhir, lakukan pengonfigurasian 3 DOKKU pada _settings_ repositori githubnya.
+`DOKKU_APP_NAME = novrizal-airsyahputra-tugas` 
+
+---
+# **Sumber Referensi Tugas 6**
+
+https://pbp-fasilkom-ui.github.io/ganjil-2024/docs/tutorial-5
+
+https://www.petanikode.com/alpinejs-fetch/#:~:text=Fetch%20API%20adalah%20kegiatan%20untuk,backend%20pada%20website%20atau%20aplikasi.
+
+https://www.biznetgio.com/en/news/mengenal-jquery-fungsi-dan-contoh-penggunaannya
+
+---

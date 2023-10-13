@@ -1,4 +1,3 @@
-
 {% extends 'base.html' %}
 
 {% block content %}   
@@ -32,6 +31,47 @@ table tr:last-child {
     color: #FFFFFF; 
 }
 
+.product {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        padding: 0 50px;
+    }
+
+    .card {
+        width: 250px;
+        flex: 0 0 calc(33.33% - 20px);
+        background: #fff;
+        margin-bottom: 20px; /* Jarak antara kartu */
+        margin-right: 20px;
+    }
+
+    .card:last-child, .card:last-child .flex-v {
+        background: #9dbfaf;
+    }
+
+    .primary-button,
+    .secondary-button,
+    .btn-outline-success {
+        border: none;
+        outline: none;
+        padding: 8px;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+        text-align: center; 
+    }
+
+    #btn_add_item {
+        width: 200px;
+    }
+
+    .flex-v {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 </style>
 
 
@@ -64,7 +104,7 @@ table tr:last-child {
 <!-- List of Books -->
 <h3>Our List of Books:</h3>
 
-<table>
+<table id="product_table">
     <tr>
         <th>Name</th>
         <th>Amount</th>
@@ -73,9 +113,8 @@ table tr:last-child {
         <th>Add an Item</th>
         <th>Remove an Item</th>
         <th>Delete an Item</th>
+        <th>Edit an Item</th>
     </tr>
-
-    {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
 
     {% for item in items %}
         <tr>
@@ -84,7 +123,6 @@ table tr:last-child {
             <td>{{item.price}}</td>
             <td>{{item.description}}</td>
 
-            {% comment %} Code untuk add sebuah Item {% endcomment %}
             <td><a href="{% url 'main:add' item.id %}">
                 <button class="custom-button">
                     Add
@@ -92,7 +130,6 @@ table tr:last-child {
                 </a>
             </td>
 
-            {% comment %} Code untuk remove sebuah Item {% endcomment %}
             <td><a href="{% url 'main:remove' item.id %}">
                 <button class="custom-button">
                     Remove
@@ -100,7 +137,6 @@ table tr:last-child {
                 </a>
             </td>
 
-            {% comment %} Code untuk delete sebuah Item {% endcomment %}
             <td><a href="{% url 'main:delete' item.id %}">
                 <button class="custom-button">
                     Delete
@@ -108,7 +144,6 @@ table tr:last-child {
                 </a>
             </td>
 
-            {% comment %} Code untuk edit sebuah Item {% endcomment %}
             <td>
                 <a href="{% url 'main:edit_item' item.pk %}">
                     <button class="custom-button">
@@ -123,12 +158,170 @@ table tr:last-child {
 
 <br />
 
-<h5>Sesi terakhir login: {{ last_login }}</h5>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Product</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="form" onsubmit="return false;">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="name" class="col-form-label">Name:</label>
+                        <input type="text" class="form-control" id="name" name="name"></input>
+                    </div>
+                    <div class="mb-3">
+                        <label for="amount" class="col-form-label">Amount:</label>
+                        <input type="number" class="form-control" id="amount" name="amount"></input>
+                    </div>
+                    <div class="mb-3">
+                        <label for="price" class="col-form-label">Price:</label>
+                        <input type="number" class="form-control" id="price" name="price"></input>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="description" class="col-form-label">Description:</label>
+                        <textarea class="form-control" id="description" name="description"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="button_add" data-bs-dismiss="modal">Add Product</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Item by AJAX</button>
+
 
 <a href="{% url 'main:create_item' %}">
     <button class="custom-button">
         Add New Item
     </button>
 </a>
+
+<h5>Sesi terakhir login: {{ last_login }}</h5>
+
+<script>
+
+    async function getItems() {
+        return fetch("{% url 'main:get_product_json' %}").then((res) => res.json())
+    }
+
+    async function refreshItems() {
+        const items = await getItems()
+        const jumlahItem = items.length
+        let htmlString1 = `<p>Kamu menyimpan ${jumlahItem} item pada aplikasi ini</p>`
+        let htmlString2 = ""
+        let htmlTable = `<tr>
+            <th>Name</th>
+            <th>Amount</th>
+            <th>Price ($)</th>
+            <th>Description</th>
+            <th>Add an Item</th>
+            <th>Remove an Item</th>
+            <th>Delete an Item</th>
+            <th>Edit an Item</th>
+        </tr>`
+
+        items.forEach((item) => {
+            console.log(item)
+            htmlString2 +=
+            
+            `<div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">${item.fields.name}</h5>
+                    <p class="card-text">${item.fields.description}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item flex-v">Amount: ${item.fields.amount}
+                        <div>
+                            <button value="${item.pk}" onclick="addAmount(${item.pk})" class="secondary-button">Add</button>
+                            <button value="${item.pk}" onclick="removeAmount(${item.pk})" class="secondary-button">Remove</button>
+                        </div>
+                    </li>
+                </ul>
+                <div class="card-body">
+                    <button value="${item.pk}" onclick="deleteItem(${item.pk})" class="primary-button">Delete</button>
+                </div>
+            </div>` 
+
+            htmlTable += 
+            `<tr>
+                <td>${item.fields.name}</td>
+                <td>${item.fields.amount}</td>
+                <td>${item.fields.price}</td>
+                <td>${item.fields.description}</td>
+                // ... the rest of your table row ...
+            </tr>`
+        })
+
+        document.getElementById("amount-message").innerHTML = htmlString1
+        document.getElementById("product").innerHTML = htmlString2
+        document.getElementById("product_table").innerHTML = htmlTable
+    }
+
+    refreshItems()
+
+    function addProduct() {
+        fetch("{% url 'main:add_product_ajax' %}", {
+            method: "POST",
+            body: new FormData(document.querySelector('#form'))
+        }).then(refreshItems)
+
+        document.getElementById("form").reset()
+        return false
+    }
+
+    document.getElementById("button_add").onclick = addProduct
+
+// Delete item by AJAX
+function deleteItem(id) {
+  fetch(`/delete/`, {
+    method: "DELETE",
+    body: JSON.stringify({
+      id: id
+    }),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  }).then(res => {
+    refreshItems();
+  })
+}
+
+// Add and remove amount by AJAX
+function addAmount(id) {
+  fetch(`/add/`, {
+    method: "PATCH",
+    body: JSON.stringify({
+      id: id
+    }),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  }).then(res => {
+    refreshItems();
+  })
+}
+
+function removeAmount(id) {
+  fetch(`/remove/`, {
+    method: "PATCH",
+    body: JSON.stringify({
+      id: id
+    }),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  }).then(res => {
+    refreshItems();
+  })
+}
+</script>
 
 {% endblock content %}

@@ -576,6 +576,7 @@ Jadi, agar kode tetap ringan, fleksibel, dan dapat menggunakan fitur JavaScript 
 
 **5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).**
 JAWAB:
+
 a. Mengubah tugas 5 yang telah dibuat sebelumnya menjadi menggunakan AJAX. Pertama-tama, buat _function_ baru dalam `views.py` (tampilkan data item pada HTML dengan fetch & gunakan AJAX untuk tambahkan _new item_ ke dalam _database_). Tak lupa, tambahkan juga _path_-nya di dalam `urls.py`. Dalam `main.html`, tambahkan id dan blok kode _script_. Terakhir, di dalam `main.html`, buatlah modal sebagai _form_.
 
 b. Melakukan perintah collectstatic dapat dilakukan setelah mengaktifkan environmen. Jalankan _command_ `python manage.py collectstatic`.

@@ -16,6 +16,7 @@ from main.models import Item
 from django.views.decorators.csrf import csrf_exempt
 import json
 
+# Mau redeploy
 @login_required(login_url='/login')
 def show_main(request):
     items = Item.objects.filter(user=request.user)

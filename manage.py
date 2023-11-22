@@ -20,3 +20,5 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+CSRF_TRUSTED_ORIGINS =["https://novrizal-airsyahputra-tugas.pbp.cs.ui.ac.id"]
